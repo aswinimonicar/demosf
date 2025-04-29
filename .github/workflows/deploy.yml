@@ -21,6 +21,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
       - uses: actions/checkout@v4
       
       - name: Setup PHP
@@ -37,10 +42,7 @@ jobs:
       - name: Setup Deployer
         run: composer global require deployer/deployer
 
-      - name: Add SSH key
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
 
       - name: Deploy using Deployer
         run: ~/.composer/vendor/bin/dep deploy production --ansi
