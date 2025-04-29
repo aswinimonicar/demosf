@@ -27,9 +27,24 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
+          extensions: mbstring, intl, pdo, mysql, zip, dom, curl
+          ini-values: post_max_size=8M, upload_max_filesize=2M
+
           
       - name: Install dependencies
-        run: composer install
+        run: composer install --no-dev --no-interaction
+
+      - name: Setup Deployer
+        run: composer global require deployer/deployer
+
+      - name: Add SSH key
+        uses: actions/checkout@v4
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy using Deployer
+        run: ~/.composer/vendor/bin/dep deploy production --ansi
       
 
       # Runs a single command using the runners shell
