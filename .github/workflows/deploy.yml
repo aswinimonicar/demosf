@@ -27,7 +27,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
-          extensions: mbstring, intl, pdo, mysql, zip, dom, curl
+          extensions: mbstring, intl, pdo, mysql, zip, dom, curl, amqp, dba, enchant, gd, imap, odbc, pdo_dblib, pdo_firebird, pdo_odbc, pdo_sqlsrv, pspell, snmp, sqlsrc, tidy, zmq, memcached
           ini-values: post_max_size=8M, upload_max_filesize=2M
 
           
