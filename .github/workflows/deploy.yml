@@ -22,23 +22,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-
-      - name: Install required system libraries
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-          librabbitmq-dev \
-          libqdbm-dev \
-          libenchant-2-dev \
-          libgd-dev \
-          libc-client2007e-dev \
-          libkrb5-dev
       
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
-          extensions: mbstring, intl, pdo, mysql, zip, dom, curl, amqp, dba, enchant, gd, imap, odbc, pdo_dblib, pdo_firebird, pdo_odbc, pdo_sqlsrv, pspell, snmp, sqlsrv, tidy, zmq, memcached
+          extensions: mbstring, intl, pdo, mysql, zip, dom, curl
+          #, amqp, dba, enchant, gd, imap, odbc, pdo_dblib, pdo_firebird, pdo_odbc, pdo_sqlsrv, pspell, snmp, sqlsrv, tidy, zmq, memcached
           ini-values: post_max_size=8M, upload_max_filesize=2M
           
       - name: Install dependencies
