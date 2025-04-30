@@ -41,10 +41,17 @@ jobs:
       - name: Setup Deployer
         run: composer global require deployer/deployer
 
-      
-
       - name: Deploy using Deployer
-        run: ~/.composer/vendor/bin/dep deploy production --ansi
+        run: ~/demosf/.composer/vendor/bin/dep deploy production --ansi
+
+      - name: Run deployment
+        env:
+          DEPLOYER_HOST: production
+        run: ~/demosf/.composer/vendor/bin/dep deploy production -f deploy.php --ansi
+
+      - name: Rollback if deployment fails
+        if: failure()
+        run: ~/demosf/.composer/vendor/bin/dep rollback production -f deploy.php --ansi
       
 
       # Runs a single command using the runners shell
