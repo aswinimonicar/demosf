@@ -27,6 +27,7 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           
       - uses: actions/checkout@v4
+          working-directory: ~/test/demosf
       
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -37,9 +38,11 @@ jobs:
           
       - name: Install dependencies
         run: composer install --no-interaction
+        working-directory: ~/test/demosf
 
       - name: Setup Deployer
         run: composer global require deployer/deployer
+        working-directory: ~/test/demosf
 
       - name: Deploy using Deployer
         run: ~/test/demosf/.composer/vendor/bin/dep deploy production --ansi
