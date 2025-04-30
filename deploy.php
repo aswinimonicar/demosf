@@ -17,7 +17,7 @@ add('writable_dirs', ['var']);
 
 // Hosts
 host('production')
-    ->setHostname(10.10.100.57')
+    ->setHostname('10.10.100.57')
     ->setRemoteUser('fairgateadmin')
     ->setDeployPath('/home/fairgateadmin/test/demosf');
 //host('10.10.100.57')
