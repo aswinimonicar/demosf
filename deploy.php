@@ -29,9 +29,15 @@ host('production')
 desc('Custom deploy sequence');
 task('deploy', [
     'deploy:prepare',
+    'deploy:lock',
+    'deploy:update_code',
+    'deploy:shared',
     'deploy:vendors',
     'deploy:cache:clear',
     'deploy:publish',
+    'deploy:symlink',
+    'deploy:unlock',
+    'deploy:cleanup'
 ]);
 
 
