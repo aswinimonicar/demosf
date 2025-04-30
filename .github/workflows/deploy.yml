@@ -27,7 +27,6 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           
       - uses: actions/checkout@v4
-          working-directory: ~/test/demosf
       
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
