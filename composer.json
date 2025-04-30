@@ -16,6 +16,7 @@
     "require": {
         "php": ">=8.2",
         "ext-pdo_sqlite": "*",
+        "deployer/deployer": "^7.5",
         "doctrine/dbal": "^4.0",
         "doctrine/doctrine-bundle": "^2.11",
         "doctrine/doctrine-migrations-bundle": "^3.3",
