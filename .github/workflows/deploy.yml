@@ -47,7 +47,7 @@ jobs:
       - name: Run deployment
         env:
           DEPLOYER_HOST: production
-        run: dep deploy production -f deploy.php --ansi
+        run: php vendor/bin/dep deploy production -f deploy.php --ansi
 
       - name: Rollback if deployment fails
         if: failure()
