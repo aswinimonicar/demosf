@@ -22,7 +22,7 @@ host('production')
     ->setDeployPath('/home/fairgateadmin/demosf');
 //host('10.10.100.57')
 //    ->set('remote_user', 'deployer')
-//    ->set('deploy_path', '~/demosf');
+//    ->set('deploy_path', '~/test/demosf');
 
 // Tasks
 
