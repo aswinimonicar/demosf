@@ -39,7 +39,7 @@ jobs:
         run: composer install --no-interaction
 
       - name: Setup Deployer
-        run: composer global require deployer/deployer
+        run: composer require deployer/deployer
 
       #- name: Deploy using Deployer
       #  run: dep deploy production --ansi
