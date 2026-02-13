@@ -5,6 +5,7 @@ require 'recipe/symfony.php';
 
 set('application', 'DemoFG');
 
+
 // Config
 
 set('repository', 'git@github.com:aswinimonicar/demosf.git');
